@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name | Portfolio</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hitarthi Shah | Portfolio</title>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
   <style>
     body {
       margin: 0;
       font-family: 'Inter', sans-serif;
-      background-color: #f5f7fa;
+      background: #f5f7fa;
       color: #333;
+      line-height: 1.6;
     }
 
     header {
-      background-color: #fff;
+      background: #fff;
       padding: 2rem;
       text-align: center;
-      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      border-bottom: 1px solid #eee;
     }
 
     header h1 {
@@ -26,9 +33,38 @@
     }
 
     header p {
-      margin-top: 0.5rem;
-      font-size: 1.2rem;
+      margin-top: 6px;
       color: #666;
+    }
+
+    .contact {
+      margin-top: 10px;
+    }
+
+    .contact a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 10px;
+      font-size: 0.95rem;
+    }
+
+    .contact i {
+      color: #007acc;
+      margin-right: 6px;
+    }
+
+    .social {
+      margin-top: 10px;
+    }
+
+    .social i {
+      font-size: 26px;
+      color: #0A66C2;
+      transition: 0.3s;
+    }
+
+    .social i:hover {
+      transform: scale(1.2);
     }
 
     .container {
@@ -37,68 +73,471 @@
       padding: 1rem;
     }
 
-    .project {
-      background-color: #fff;
-      padding: 1.5rem;
-      border-radius: 12px;
-      box-shadow: 0 1px 8px rgba(0, 0, 0, 0.05);
+    .card {
+      background: #fff;
+      padding: 1.6rem;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
       margin-bottom: 1.5rem;
+      transition: all 0.25s ease;
+      border: 1px solid #f0f0f0;
     }
 
-    .project h3 {
+    h2 {
       margin-top: 0;
+      border-bottom: 2px solid #f1f1f1;
+      padding-bottom: 6px;
     }
 
-    .project a {
-      text-decoration: none;
-      color: #007acc;
+    .summary p {
+      line-height: 1.6;
+      color: #555;
+    }
+
+    .skills-category {
+      margin-bottom: 10px;
+    }
+
+    .exp {
+      margin-bottom: 20px;
+    }
+
+    .exp h4 {
+      margin: 0;
+    }
+
+    .exp span {
+      font-size: 0.9rem;
+      color: #777;
+    }
+
+    .exp ul {
+      margin-top: 8px;
+      padding-left: 20px;
+      line-height: 1.6;
+    }
+
+    .edu-item {
+      margin-bottom: 12px;
+    }
+
+    .languages span {
+      display: inline-block;
+      background: #eef3f8;
+      padding: 6px 12px;
+      border-radius: 6px;
+      margin-right: 8px;
+      margin-top: 6px;
+      font-size: 0.9rem;
     }
 
     footer {
       text-align: center;
-      padding: 2rem 1rem;
+      padding: 2rem;
       color: #999;
     }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
+    /* PROJECT GRID */
 
-      .project {
-        padding: 1rem;
-      }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 10px;
+    }
+
+    .project-card {
+      background: #fafafa;
+      border-radius: 10px;
+      padding: 16px;
+      border: 1px solid #eee;
+      transition: all 0.3s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .project-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .project-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+    }
+
+    .store-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    .store-icons img {
+      width: 20px;
+    }
+
+    .social-actions {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+    }
+
+
+    .social-actions i {
+      font-size: 26px;
+      color: #0A66C2;
+      transition: 0.25s;
+    }
+
+    .social-actions i:hover {
+      transform: scale(1.2);
+    }
+
+    .resume-btn {
+      background: #007acc;
+      color: #fff;
+      padding: 8px 14px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .summary-icon {
+      color: #4CAF50;
+    }
+
+    .skills-icon {
+      color: #007acc;
+    }
+
+    .exp-icon {
+      color: #ff9800;
+    }
+
+    .project-icon {
+      color: #9c27b0;
+    }
+
+    .edu-icon {
+      color: #e91e63;
+    }
+
+    .lang-icon {
+      color: #009688;
+    }
+
+    h2 i {
+      margin-right: 8px;
     }
   </style>
 </head>
+
 <body>
+
   <header>
-    <h1>Your Name</h1>
-    <p>Frontend Developer | Open Source Enthusiast | React Native Lover</p>
-    <p>
-      <a href="https://github.com/yourusername" target="_blank">GitHub</a> |
-      <a href="https://www.linkedin.com/in/yourprofile/" target="_blank">LinkedIn</a>
-    </p>
+
+    <h1>Hitarthi Shah</h1>
+    <p>Mobile App Developer • 6+ Years Experience</p>
+
+    <div class="contact">
+
+      <a href="mailto:hitarthimehta1996@gmail.com">
+        <i class="fa-solid fa-envelope"></i>
+        hitarthimehta1996@gmail.com
+      </a>
+
+      <a href="tel:+919558725333">
+        <i class="fa-solid fa-phone"></i>
+        9558725333
+      </a>
+
+    </div>
+
+    <div class="social-actions">
+
+      <a href="https://www.linkedin.com/in/hitarthi-mehta-b946b9160" target="_blank">
+        <i class="fa-brands fa-linkedin"></i>
+      </a>
+
+      <a href="https://drive.google.com/file/d/1z05TWf5SskIX733ukr6SVo7rThDyDVqc/view?usp=sharing" target="_blank"
+        class="resume-btn">
+        Download Resume
+      </a>
+
+    </div>
+
   </header>
 
   <div class="container">
-    <section class="project">
-      <h3>Project One</h3>
-      <p>A short description of the project and what tech it uses. Maybe a cool feature or two.</p>
-      <a href="https://github.com/yourusername/project-one" target="_blank">View on GitHub →</a>
+
+    <section class="card summary">
+
+      <h2><i class="fa-solid fa-user summary-icon"></i> Professional Summary</h2>
+
+      <p>
+        Mobile Application Developer with 6+ years of experience in iOS, Android, and
+        React Native development. Strong expertise in building scalable cross-platform
+        applications, integrating APIs, implementing in-app purchases, and managing
+        the complete app deployment lifecycle on the App Store and Google Play.
+        Experienced in handling production releases, resolving app rejections, and
+        optimizing performance to deliver stable and user-friendly mobile solutions.
+      </p>
+
     </section>
 
-    <section class="project">
-      <h3>Project Two</h3>
-      <p>Another quick project overview. Make it catchy and concise.</p>
-      <a href="https://github.com/yourusername/project-two" target="_blank">View on GitHub →</a>
+    <section class="card">
+
+      <h2><i class="fa-solid fa-code skills-icon"></i> Technical Skills</h2>
+
+      <div class="skills-category">
+        <strong>Mobile Technologies:</strong><br>
+        React Native, iOS (Swift, SwiftUI, Objective-C), Android (Java)
+      </div>
+
+      <div class="skills-category">
+        <strong>Programming Languages:</strong><br>
+        JavaScript (ES6+), Swift, Objective-C, Java, Dart (Basic)
+      </div>
+
+      <div class="skills-category">
+        <strong>APIs & Integration:</strong><br>
+        REST APIs, GraphQL, In-App Purchases, Social Media Login, Third-party SDKs
+      </div>
+
+      <div class="skills-category">
+        <strong>Tools & Platforms:</strong><br>
+        Xcode, Android Studio, Git, Firebase, App Store Connect, Google Play Console
+      </div>
+
     </section>
 
-    <!-- Add more projects as needed -->
+    <section class="card">
+
+      <h2><i class="fa-solid fa-briefcase exp-icon"></i> Professional Experience</h2>
+
+      <div class="exp">
+
+        <h4>React Native Developer | Abbacus Technologies, Ahmedabad</h4>
+        <span>2023 — Present</span>
+
+        <ul>
+          <li>Developed cross-platform mobile applications for Android and iOS using React Native.</li>
+          <li>Designed reusable and scalable UI components for maintainable architecture.</li>
+          <li>Integrated REST and GraphQL APIs for real-time data synchronization.</li>
+          <li>Developed custom native modules for platform-specific functionality.</li>
+          <li>Managed complete release lifecycle for Play Store and App Store.</li>
+          <li>Handled app review rejections and resolved compliance issues.</li>
+          <li>Contributed to native Android projects implementing new features and UI improvements.</li>
+          <li>Debugged Android issues improving performance and stability.</li>
+        </ul>
+
+      </div>
+
+      <div class="exp">
+
+        <h4>iOS Application Developer | eTechmavens, Ahmedabad</h4>
+        <span>2019 — 2023</span>
+
+        <ul>
+          <li>Developed multiple iOS applications using Swift, SwiftUI, and Objective-C.</li>
+          <li>Integrated social media login, payment gateways, and third-party SDKs.</li>
+          <li>Managed certificates, provisioning profiles, and App Store submissions.</li>
+          <li>Fixed critical bugs and optimized application performance.</li>
+          <li>Maintained and enhanced legacy applications.</li>
+        </ul>
+
+      </div>
+
+      <div class="exp">
+
+        <h4>Android Application Developer | Akash Technolabs, Ahmedabad</h4>
+        <span>2018 — 2019</span>
+
+        <ul>
+          <li>Developed Android applications using Java.</li>
+          <li>Implemented UI layouts and integrated REST APIs.</li>
+          <li>Resolved production issues and improved app stability.</li>
+        </ul>
+
+      </div>
+
+    </section>
+
+    <section class="card">
+
+      <h2><i class="fa-solid fa-diagram-project project-icon"></i> Projects</h2>
+
+      <div class="projects-grid">
+
+        <!-- Production Control -->
+        <div class="project-card">
+
+
+          <h4>Production Control App | Tablet App | React Native</h4>
+
+          <ul>
+            <li>Developed a tablet-optimized production and quality control application for manufacturing QA teams.</li>
+            <li>Designed responsive large-screen UI and implemented dynamic inspection forms.</li>
+            <li>Integrated REST APIs for real-time data synchronization with backend systems.</li>
+            <li>Streamlined shop-floor workflows to improve quality check efficiency and reporting.</li>
+            <li>Optimized performance for continuous industrial usage and managed Play Store deployment and production
+              support.</li>
+          </ul>
+
+          <div class="store-icons">
+            <a href="https://play.google.com/store/apps/details?id=com.processcontrolapp&hl=en" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg" alt="Play Store"
+                style="width:20px;margin-top:8px;">
+            </a>
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+
+          <h4>Surya Foods | React Native</h4>
+
+          <ul>
+            <li>Contributed to the development of Surya Foods Business App, a B2B wholesale e-commerce platform for
+              retailers, restaurants, and food service businesses.</li>
+            <li>Implemented intuitive UI for browsing 60+ brand lines across multiple product categories.</li>
+            <li>Integrated REST APIs for authentication, product catalog, search, cart, and order management.</li>
+            <li>Developed features for category filtering, bulk ordering, and real-time updates.</li>
+            <li>Managed Play Store releases, version updates, and post-production support.</li>
+          </ul>
+
+          <div class="store-icons">
+            <a href="https://play.google.com/store/apps/details?id=com.suryacustomerapp&hl=en_IN" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
+                style="width:20px;">
+            </a>
+
+            <a href="https://apps.apple.com/in/app/surya-foods/id1574688766" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg"
+                style="width:20px;">
+            </a>
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <h4>iHus | React Native</h4>
+
+          <ul>
+            <li>Developed a cross-platform mobile application for Android and iOS using React Native.</li>
+            <li>Implemented modern and responsive UI components to provide a seamless user experience.</li>
+            <li>Integrated REST APIs for dynamic content loading and real-time data synchronization.</li>
+            <li>Optimized application performance and ensured smooth functionality across devices.</li>
+            <li>Managed Play Store and App Store deployments, including updates and production support.</li>
+          </ul>
+
+          <div class="store-icons">
+            <a href="https://play.google.com/store/apps/details?id=com.app.ihus&hl=en_IN" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
+                style="width:20px;">
+            </a>
+
+            <a href="https://apps.apple.com/gb/app/ihus/id6505063586" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg"
+                style="width:20px;">
+            </a>
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <h4 style="display:flex;align-items:center;gap:10px;">
+            Medfellows | React Native
+          </h4>
+
+          <ul>
+            <li>Developed a cross-platform healthcare application for Android and iOS using React Native.</li>
+            <li>Implemented user-friendly UI components to provide seamless navigation and an intuitive user experience.
+            </li>
+            <li>Integrated REST APIs to enable secure data exchange and dynamic content updates.</li>
+            <li>Developed features for user registration, profile management, and healthcare-related services.</li>
+            <li>Managed Play Store and App Store releases, including version updates and production support.</li>
+          </ul>
+
+          <div class="store-icons">
+
+            <a href="https://play.google.com/store/apps/details?id=com.medfellows&hl=en_IN" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Play_Arrow_logo.svg"
+                style="width:20px;">
+            </a>
+
+            <a href="https://apps.apple.com/us/app/medfellows/id6736453451" target="_blank">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/6/67/App_Store_%28iOS%29.svg"
+                style="width:20px;">
+            </a>
+
+          </div>
+
+        </div>
+
+        <div class="project-card">
+
+          <h4>Ranking Star | iOS</h4>
+
+          <ul>
+            <li>Korean contest-based application with contestant ranking and voting system.</li>
+            <li>Implemented social login and profile sharing features.</li>
+            <li>Integrated in-app purchases for virtual star purchases.</li>
+            <li>Enabled star transfer functionality between users.</li>
+          </ul>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+    <section class="card">
+
+      <h2><i class="fa-solid fa-graduation-cap edu-icon"></i> Education</h2>
+
+      <div class="edu-item">
+        <strong>Master of Computer Application & IT</strong><br>
+        GLS University, Ahmedabad<br>
+        <span>Jun 2016 — Jun 2018</span>
+      </div>
+
+      <div class="edu-item">
+        <strong>Bachelor of Computer Application</strong><br>
+        Som-Lalit Institute, Ahmedabad<br>
+        <span>Jun 2013 — Jun 2016</span>
+      </div>
+
+    </section>
+
+    <section class="card languages">
+
+      <h2><i class="fa-solid fa-language lang-icon"></i> Languages</h2>
+
+      <span>Gujarati</span>
+      <span>Hindi</span>
+      <span>English</span>
+
+    </section>
+
   </div>
 
   <footer>
-    &copy; 2025 Your Name. All rights reserved.
+    © 2026 Hitarthi Shah
   </footer>
+
 </body>
+
 </html>
